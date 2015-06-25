@@ -1,0 +1,145 @@
+<html>
+<head>
+  <title>Madewell</title>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Making it swipeable - Swipeable Side Menu</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="jquery.touchSwipe.min.js"></script>
+    <link href="stylesheet.css" type="text/css" rel="stylesheet"/>
+
+    <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville' rel='stylesheet' type='text/css'>
+
+    
+     <script type="text/javascript">
+      $(window).load(function(){
+        $("[data-toggle]").click(function() {
+          var toggle_el = $(this).data("toggle");
+          $(toggle_el).toggleClass("open-sidebar");
+        });
+         $(".swipe-area").swipe({
+              swipeStatus:function(event, phase, direction, distance, duration, fingers)
+                  {
+                      if (phase=="move" && direction =="right") {
+                           $(".container").addClass("open-sidebar");
+                           return false;
+                      }
+                      if (phase=="move" && direction =="left") {
+                           $(".container").removeClass("open-sidebar");
+                           return false;
+                      }
+                  }
+          }); 
+      });
+      </script>
+
+
+      <style type="text/css">
+
+
+        .logo img{
+
+          width: 144px;
+          height: 34px;
+          padding-top:30px; 
+          padding-left: 420px;
+        }
+
+        .top{
+
+          padding-top: 20px;}
+
+
+        .content .pic figure{
+          float: left;
+          display: block;
+
+        } 
+    
+        figcaption {
+            font-family: Oswald;
+            font-size: 15px;
+            text-align: center;
+            padding-top: 10px
+           }
+
+
+        }
+
+      </style>
+
+
+
+     </head>
+  <body>
+    <div class="container">
+      <div id="sidebar">
+          <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="dresses.html">Dresses</a></li>
+              <li><a href="shoes.html">Shoes</a></li>
+                  <li><a href="bags.html">Bags</a></li>
+          </ul>
+      </div>
+      <div class="main-content">
+          <div class="swipe-area"></div>
+          <a href="#" data-toggle=".container" id="sidebar-toggle">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+          </a>
+          <div class="content">
+            
+              <div class="logo">
+                <img src="images/dresses/logo.png"/>
+              </div>
+
+              <div class="top">
+                <img src="images/dresses/top-pic.jpg"/>
+              </div>
+
+
+             <div class="pic">
+                 <figure>
+                    <img src="images/dresses/d1.jpg"/>
+                    <figcaption>$120.00</figcaption>
+                 </figure> 
+             </div>
+
+            <div class="pic">
+                <figure>
+                 <img src="images/dresses/d2.jpg"/>
+                   <figcaption>$135.00</figcaption>
+              </figure> 
+            </div>
+
+             <div class="pic">
+                <figure>
+                  <img src="images/dresses/d3.jpg"/>
+                   <figcaption>$110.00</figcaption>
+               </figure> 
+
+
+             <div class="pic">
+                <figure>
+                  <img src="images/dresses/d4.jpg"/>
+                   <figcaption>$200.00</figcaption>
+               </figure> 
+
+               <div class="pic">
+                <figure>
+                  <img src="images/dresses/d5.jpg"/>
+                   <figcaption>$130.00</figcaption>
+               </figure> 
+
+               <div class="pic">
+                <figure>
+                  <img src="images/dresses/d6.jpg"/>
+                   <figcaption>$210.00</figcaption>
+               </figure> 
+
+
+          </div>
+      </div>
+    </div>
+  </body>
+</html>  
