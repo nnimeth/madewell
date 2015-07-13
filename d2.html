@@ -1,0 +1,175 @@
+<html>
+<head>
+  <title>Madewell</title>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Making it swipeable - Swipeable Side Menu</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="jquery.touchSwipe.min.js"></script>
+    <link href="stylesheet.css" type="text/css" rel="stylesheet"/>
+
+    <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville' rel='stylesheet' type='text/css'>
+
+    
+     <script type="text/javascript">
+      $(window).load(function(){
+        $("[data-toggle]").click(function() {
+          var toggle_el = $(this).data("toggle");
+          $(toggle_el).toggleClass("open-sidebar");
+        });
+         $(".swipe-area").swipe({
+              swipeStatus:function(event, phase, direction, distance, duration, fingers)
+                  {
+                      if (phase=="move" && direction =="right") {
+                           $(".container").addClass("open-sidebar");
+                           return false;
+                      }
+                      if (phase=="move" && direction =="left") {
+                           $(".container").removeClass("open-sidebar");
+                           return false;
+                      }
+                  }
+          }); 
+      });
+
+
+var images = new Array('images/dresses/close-up/dress2/d2-front.jpg','images/dresses/close-up/dress2/d2-side.jpg', 'images/dresses/close-up/dress2/d2-back.jpg');
+var index = 1;
+
+function rotateImage()
+{
+  $('#d2-front').fadeOut('fast', function()
+  {
+    $(this).attr('src', images[index]);
+
+    $(this).fadeIn('fast', function()
+    {
+      if(index == images.length-1)
+      {
+        index = 0;
+      }
+      else
+      {
+        index++;
+      }
+    });
+  });
+}
+
+$(document).ready(function()
+{
+  setInterval(rotateImage, 4000);
+});
+
+
+
+      </script>
+
+
+      <style type="text/css">
+
+
+        .logo img{
+
+          width: 144px;
+          height: 34px;
+          padding-top:30px; 
+          padding-left: 420px;
+        }
+
+        .bg{
+          margin-top: 20px;
+          padding-top: 20px;
+        }
+
+        .info{
+          float:right;
+          position: relative;
+          margin-top: -400px;
+          margin-right:200px;
+          font-size: 15px;
+          line-height: 12px;
+
+          }
+
+          .add{
+           float:right;
+           position: relative;
+           margin-right:250px;
+           margin-top: -70px;
+
+          }
+
+          .size{
+           float:right;
+           position: relative;
+           margin-right: 360px;
+           margin-top: -125px;
+
+          }
+
+
+        }
+
+      </style>
+
+
+
+     </head>
+  <body>
+    <div class="container">
+      <div id="sidebar">
+          <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="dresses.html">Dresses</a></li>
+              <li><a href="shoes.html">Shoes</a></li>
+                  <li><a href="bags.html">Bags</a></li>
+          </ul>
+      </div>
+      <div class="main-content">
+          <div class="swipe-area"></div>
+          <a href="#" data-toggle=".container" id="sidebar-toggle">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+          </a>
+          <div class="content">
+            
+              <div class="logo">
+                <img src="images/dresses/logo.png"/>
+              </div>
+
+              <div class="bg">
+                <img src="images/dresses/close-up/dress2/d2-front.jpg" id="d2-front"/>
+              </div>
+
+              <div class="info">
+                <p><b>Dockside T-Shirt Dress</b></p>
+                <p style="font-size: 13px;">item c4469</p>
+                <p style="font-size: 13px;">Price $120</p>
+                <p style="font-size: 13px;">Color: Deep Navy</p>
+                <p style="font-size: 13px;">Product Details:</p>
+                <p style="font-size: 13px;line-height:18px;">With its nautical-inspired stripes, pop-on shape and <br>cool on-seam pockets, this fuss-free mini dress is as <br>easy to wear as a T-shirt. Constructed of a special <br>textural Japanese piqué ponte, the stretchy style is <br>made to last.</p>  
+
+                <p style="font-size: 13px;line-height:18px;">Size:</p>
+
+              </div>
+
+              <div class="add">
+                <img src="images/dresses/close-up/dress2/add1.jpg"/>
+              </div>
+
+              <div class="size">
+
+                 <img src="images/dresses/close-up/dress2/small1.jpg"/>
+
+                 <img src="images/dresses/close-up/dress2/medium1.jpg"/>
+
+                 <img src="images/dresses/close-up/dress2/large1.jpg"/>
+              </div>
+
+
+          </div>
+      </div>
+    </div>
+  </body>
+</html>  
